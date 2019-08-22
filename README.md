@@ -1,4 +1,4 @@
-# **(V)**ariant **(A)**nalysis **(P)**ipeline
+# **(V)ariant (A)nalysis (P)ipeline**
 
 Thank you for your interest in using the Variant Analysis Pipeline.
 VAP is a comprehensive workflow for reference mapping and variant detection of genomic and transcriptomic reads using a suite of bioinformatics tools.
