@@ -27,7 +27,7 @@ Bioinformatic tools are grouped based on sequencing reads
 	Contact maintainer to make custom changes to the different tools if needed.
 
 
-###
+
 ## Things to be aware of 
 
 ### Job File
@@ -73,6 +73,6 @@ The downstream step performs the following:
 1. Exploratory statistics of all variant files.
 
 
-###
+
 ## To run workflow
 perl VariantAnalysisPipeline.pl -c config_job.file

@@ -1,0 +1,53 @@
+## - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+## - - - - - - - - - - - C O N F I G U R A T I O N - F I L E - - - - - - - - - - - - -
+## - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+######============== TOOL LOCATIONS ==============######
+TOPHAT = /path/to/tophat2
+BOWTIE = /path/to/bowtie2
+STAR = /path/to/star
+HISAT = /path/to/hisat2
+BWA = /path/to/bwa/
+PICARD = /path/to/picard.jar
+GATK = /path/to/gatk.jar
+SAMTOOLS = /path/to/samtools #optional
+FASTQC = /path/to/fastqc
+
+######============ INPUT FILE OPTIONS ============######
+GFF = /path/to/gff_file
+GTF = /path/to/gtf_file
+GENOME = /path/to/genome_fasta
+GENOMEDIR = /path/to/genome_indexes_directory
+FASTQ = /path/to/fastq_files/*gz [or false]
+SAM = /path/to/sam_files/*sam [or false]
+BAM = /path/to/bam_files/*bam [or false]
+
+######================== OPTIONS ==================###### 
+THREADS = 4    #number of threads for alignment process
+
+######=============== OUTPUT FOLDER ===============######
+OUTPUTDIR = /path/to/output_folder
+
+######================== WORKFLOW =================######
+sampleRNA = true [or false] #is sample RNA
+sampleDNA = false [or true] #is sample DNA
+
+#Alignment options
+runTopHat = true [or false] #only when sampleRNA=true
+runHISAT = true [or false] #only when sampleRNA=true
+runSTAR = true [or false] #only when sampleRNA=true
+runBWA = false [or true] #only when sampleDNA=true
+runBOWTIE = false [or true] #only when sampleDNA=true
+
+#Housekeeping + VariantAnalysis 
+runFastqc = true [or false]
+runVAP = true [or false]
+runMergeFilter = true [or false]
+
+######=============== NOTIFICATION ===============######
+EMAIL= youremail@address.com
+SUBJECT = Title_of_Email #space sensitive
+
+## - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+## - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+## - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
