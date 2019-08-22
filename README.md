@@ -1,5 +1,6 @@
-# (V)ariant (A)nalysis (P)ipeline
-Thanks for your interest in using the Variant Analysis Pipeline.
+# **(V)ariant (A)nalysis (P)ipeline**
+
+Thank you for your interest in using the Variant Analysis Pipeline.
 VAP is a comprehensive workflow for reference mapping and variant detection of genomic and transcriptomic reads using a suite of bioinformatics tools.
 
 
@@ -71,7 +72,6 @@ The downstream step performs the following:
    1.   SnpCluster (3 SNPs in 35bp)
    1.   Mann-Whitney Rank-Sum (MQRankSum) < -12.5
 1. Exploratory statistics of all variant files.
-
 
 
 ## To run workflow
