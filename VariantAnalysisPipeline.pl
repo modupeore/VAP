@@ -18,7 +18,7 @@ use Thread::Queue;
 our ($TOPHAT, $BOWTIE, $PICARD, $GATK, $HISAT, $FASTQC, $STAR, $SAMBAM, $BWA);
 
 #files
-our ($value, %CONFIGURE, %FILE, @content, @uglies, @arrayfile, @threads);
+our ($value, %CONFIGURE, %FILE, @content, @uglies, @arrayfile, @mergethreads, @threads);
 
 #inputs
 our ($REF, $SAMREF, $GATKREF, $ANN, $ANNGTF, $outputfolder, $THREADS);
@@ -176,7 +176,6 @@ my $builder=threads->create(\&main); #create thread for each subarray into a thr
 push @threads, threads->create(\&processor) for 1..5; #execute 5 threads
 $builder->join; #join threads
 foreach (@threads){$_->join;}
-@threads = ""; 
 
 #MERGE&FILTER #final optional stages
 if ($CONFIGURE{"RUNMERGEFILTER"} eq "true" && $CONFIGURE{"RUNVAP"} eq "true"){
@@ -189,9 +188,9 @@ if ($CONFIGURE{"RUNMERGEFILTER"} eq "true" && $CONFIGURE{"RUNVAP"} eq "true"){
 
   $queue = new Thread::Queue();
   $builder=threads->create(\&final); #create thread for each subarray into a thread
-  push @threads, threads->create(\&processor) for 1..5; #execute 5 threads
+  push @mergethreads, threads->create(\&processor) for 1..5; #execute 5 threads
   $builder->join; #join threads
-  foreach (@threads){$_->join;}
+  foreach (@mergethreads){$_->join;}
 } # end if merge&filter
 #end of job
 `echo "Job Completed" >>  $outputfolder/welcome-$date.log` if $notify;
@@ -259,7 +258,7 @@ sub parseinput{ #working with each thread
   system("echo 'from $_[0].err' >> $outputfolder/$std_err");
   system("cat $_[0].log >> $outputfolder/$std_out");
   system("cat $_[0].err >> $outputfolder/$std_err");
-  system("cat $_[0].notice.log >> $outputfolder/welcome-$date.log");
+  if ($notify) { system("cat $_[0].notice.log >> $outputfolder/welcome-$date.log"); }
   print "Completed\t$_[0]\t",`date +%x-%X`;
 } #end of subroutine: parseinput
 
@@ -503,16 +502,17 @@ $codes=<<"ENDCODES";
 `mv tempfilter.txt $filtered`;
 `grep -e "^#" -e "PASS" $filtered > $finalfilter`;
 print META "$sample"."-PASSFILTER\\tSNP\\t".`grep -v "^#" $finalfilter | wc -l`;
-print META "$sample"."-PASSFILTER\\tSNP\\n\\t\\ttransistions";
+print META "$sample"."-PASSFILTER\\tSNP\\n\\t\\ttransitions";
 ENDCODES
     print OUT "$codes\n";
 
 $codes=<<'ENDCODES';
 print META "\t$trans\n\t\ttransversions\t$tranv\n";
-foreach $aa (keys %SNPALT){
-  foreach $bb (keys %{$SNPALT{$aa}}){
+foreach $aa (sort keys %SNPALT){
+  foreach $bb (sort keys %{$SNPALT{$aa}}){
     print META "\t\t$aa>$bb\t$SNPALT{$aa}{$bb}\n";
   }
+}
 close META;
 ENDCODES
 
