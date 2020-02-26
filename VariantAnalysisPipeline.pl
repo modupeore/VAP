@@ -35,7 +35,7 @@ configureinput(); #configure input options
 INPUTFILES(); #sort inputfiles
 
 #standard error and output file
-`mkdir -p $outputfolder`; print "$outputfolder\n";
+`mkdir -p $outputfolder`;
 chdir ("$outputfolder"); #working from the outputfolder;
 open(STDOUT, '>', "$std_out") or die "Log file doesn't exist";
 open(STDERR, '>', "$std_err") or die "Error file doesn't exist";
