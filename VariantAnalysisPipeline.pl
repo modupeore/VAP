@@ -35,7 +35,7 @@ configureinput(); #configure input options
 INPUTFILES(); #sort inputfiles
 
 #standard error and output file
-`mkdir -p $outputfolder`;
+`mkdir -p $outputfolder`; print "$outputfolder\n";
 chdir ("$outputfolder"); #working from the outputfolder;
 open(STDOUT, '>', "$std_out") or die "Log file doesn't exist";
 open(STDERR, '>', "$std_err") or die "Error file doesn't exist";
@@ -302,16 +302,16 @@ sub INPUTFILES { #sorting the input files
     foreach (@content) {
       my $file = basename($_);
       if($file =~ /.+[_\.][Rr][12].+/) {
-        $file =~ /(.+)_.*[_\.][Rr][12].+/; $value = $1;
+        $file =~ /(.+)[_\.][Rr][12].+/; $value = $1;
       }
       elsif($file =~ /.+[_\.][12].+/) {
-        $file =~ /(.+)_.*[_\.][12].+/; $value = $1;
+        $file =~ /(.+)[_\.][12].+/; $value = $1;
       }
       elsif($file =~ /.+[_\.]pe[12]/) {
-        $file =~ /(.+)_.*[_\.]pe[12].+/; $value = $1;
+        $file =~ /(.+)[_\.]pe[12].+/; $value = $1;
       }
       elsif($file =~ /.+[_\.]PE[12]/) {
-        $file =~ /(.+)_.*[_\.]PE[12].+/; $value = $1;
+        $file =~ /(.+)[_\.]PE[12].+/; $value = $1;
       }
       else { $value = $1; }
       
