@@ -302,16 +302,16 @@ sub INPUTFILES { #sorting the input files
     foreach (@content) {
       my $file = basename($_);
       if($file =~ /.+[_\.][Rr][12].+/) {
-        $file =~ /(.+)_.*[_\.][Rr][12].+/; $value = $1;
+        $file =~ /(.+)[_\.][Rr][12].+/; $value = $1;
       }
       elsif($file =~ /.+[_\.][12].+/) {
-        $file =~ /(.+)_.*[_\.][12].+/; $value = $1;
+        $file =~ /(.+)[_\.][12].+/; $value = $1;
       }
       elsif($file =~ /.+[_\.]pe[12]/) {
-        $file =~ /(.+)_.*[_\.]pe[12].+/; $value = $1;
+        $file =~ /(.+)[_\.]pe[12].+/; $value = $1;
       }
       elsif($file =~ /.+[_\.]PE[12]/) {
-        $file =~ /(.+)_.*[_\.]PE[12].+/; $value = $1;
+        $file =~ /(.+)[_\.]PE[12].+/; $value = $1;
       }
       else { $value = $1; }
       
