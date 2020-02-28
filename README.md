@@ -3,6 +3,9 @@
 Thank you for your interest in using the Variant Analysis Pipeline.
 VAP is a comprehensive workflow for reference mapping and variant detection of genomic and transcriptomic reads using a suite of bioinformatics tools.
 
+Article Source: Variant analysis pipeline for accurate detection of genomic variants from transcriptome sequencing data
+Adetunji MO, Lamont SJ, Abasht B, Schmidt CJ (2019) Variant analysis pipeline for accurate detection of genomic variants from transcriptome sequencing data. PLOS ONE 14(9): e0216838. https://doi.org/10.1371/journal.pone.0216838
+
 
 ## Bioinformatic tools 
 Bioinformatic tools are grouped based on sequencing reads
