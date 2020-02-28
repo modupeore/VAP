@@ -25,7 +25,23 @@ Bioinformatic tools are grouped based on sequencing reads
   * variant detection using **GATK**.
 
 **N.B.** : parameters of all tools are set to default.
-	Contact maintainer to make custom changes to the different tools if needed.
+
+Software used to design the VAP workflow are:
+
+Software | Version
+-------- | -------------
+TopHat2 | 2.1.1
+HiSAT2 | 2.1.0
+STAR | 2.5.2b
+SAMtools | 1.4.1
+Picard tools | 2.13.2
+GATK | 3.8
+BWA-mem | 0.7.17
+BOWTIE2 | 2.3.5.1
+
+*Current pipeline is not compatible with GATK v4*
+
+Contact maintainer to make custom changes to the different tools if needed.
 
 
 
