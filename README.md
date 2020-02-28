@@ -3,7 +3,9 @@
 Thank you for your interest in using the Variant Analysis Pipeline.
 VAP is a comprehensive workflow for reference mapping and variant detection of genomic and transcriptomic reads using a suite of bioinformatics tools.
 
-Article Source: Variant analysis pipeline for accurate detection of genomic variants from transcriptome sequencing data
+_**Article Source:**_ 
+
+Variant analysis pipeline for accurate detection of genomic variants from transcriptome sequencing data
 Adetunji MO, Lamont SJ, Abasht B, Schmidt CJ (2019) Variant analysis pipeline for accurate detection of genomic variants from transcriptome sequencing data. PLOS ONE 14(9): e0216838. https://doi.org/10.1371/journal.pone.0216838
 
 
@@ -14,12 +16,10 @@ Bioinformatic tools are grouped based on sequencing reads
 * BOWTIE2
 * BWA
 
-
 ### Transcriptomic Sequencing
 * TOPHAT2
 * STAR (2-PASS)
 * HISAT2
-
 
 ### Variant Calling (for both Genomic/Transcriptomic Sequencing)
 * PICARD + GATK HaplotypeCaller
@@ -29,7 +29,7 @@ Bioinformatic tools are grouped based on sequencing reads
 
 **N.B.** : parameters of all tools are set to default.
 
-Software used to design the VAP workflow are:
+### Software used to design the VAP workflow are:
 
 Software | Version
 -------- | -------------
@@ -44,8 +44,7 @@ BOWTIE2 | 2.3.5.1
 
 *Current pipeline is not compatible with GATK v4*
 
-Contact maintainer to make custom changes to the different tools if needed.
-
+Contact maintainer to make custom changes to the different tools
 
 
 ## Things to be aware of 
